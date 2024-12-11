@@ -1,0 +1,100 @@
+# comments
+# DDL Data Definition Language
+# CREATE DROP ALTER
+# CREATE DATABASE db_name;
+CREATE DATABASE students;
+# DROP DATABASE db_name;
+DROP DATABASE students;
+CREATE DATABASE IF NOT EXISTS student;
+DROP DATABASE IF EXISTS student;
+# To Show all databases
+SHOW databases;
+# SELECT A DATABASE
+# USE db_name;
+USE student;
+# CREATE A TABLE 
+# CREATE TABLE table_name(
+# column_definition1,
+# column_definition2,
+# ..........	
+CREATE TABLE python(
+rollno int,
+name varchar(50),
+class varchar(10)
+);
+
+# INSERT DATA INTO DATABASE
+# INSERT INTO table_name(column1,column2,..) 
+# VALUE(value1,value2,..);
+INSERT INTO python(rollno,name,class)
+VALUE(101,"Rahul Kumar","XII");
+
+# RETRIVE DATA FROM DATABASE
+# SELECT column1,column2,column5.. 
+# FROM table_name;
+SELECT rollno,name,class FROM python;
+SELECT * FROM python;
+SELECT rollno,name FROM python;
+
+# STORE MULTIPLE DATA
+INSERT INTO python(rollno,name,class) VALUES
+(102,"Ravi Shashtri","IX"),
+(103,"Rajan Singh","VII");
+
+INSERT INTO python VALUE(104,"Simran","XI");
+INSERT INTO python(class,name) VALUE("III","Ravi Singh");
+SELECT * FROM python;
+
+CREATE TABLE java(
+rollno int NOT NULL,
+name varchar(50) NOT NULL,
+class varchar(10)
+);
+
+INSERT INTO java(rollno,name) VALUE
+(103,"Raman");
+SELECT * FROM java;
+
+CREATE TABLE ds(
+rollno int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(50) NOT NULL,
+class varchar(10) NOT NULL
+);
+INSERT INTO ds(rollno,name,class) VALUE(4,"Suman","IX");
+SELECT * FROM ds;
+
+# Only one column can be primary key
+CREATE TABLE algo(
+rollno int primary key auto_increment,
+name varchar(100) NOT NULL,
+email varchar(50) NOT NULL UNIQUE,
+class varchar(10) NOT NULL
+);
+
+INSERT INTO algo(name,email,class) VALUES
+("Simran Chauhan","simranchauhan@gmail.com","IX");
+SELECT * FROM algo;
+
+CREATE DATABASE ecomm;
+USE ecomm;
+CREATE TABLE product(
+pid int primary key auto_increment,
+pname VARCHAR(100) NOT NULL,
+qty int NOT NULL,
+price int not null
+);
+INSERT INTO product(pname,qty,price) VALUES
+("Thumsup 2Ltr",25,70),
+("Sprite 2Ltr",35,70),
+("Coke 750ml",50,35);
+
+SELECT * FROM product;
+
+CREATE TABLE orders(
+oid int primary key auto_increment,
+pid int NOT NULL,
+qty int NOT NULL
+);
+
+INSERT INTO orders(pid,qty) VALUE(1,3);
+SELECT * FROM orders;
